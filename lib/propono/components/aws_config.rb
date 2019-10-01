@@ -8,7 +8,7 @@ module Propono
     def aws_options
       if @config.use_iam_profile
         {
-          :use_iam_profile => true,
+          :credentials => Aws::InstanceProfileCredentials.new,
           :region => @config.queue_region
         }
       else
